@@ -25,9 +25,9 @@ Update your `services.yaml` in your /config directory and fill in your own value
 
 ```
 parameters:
-    lma_dev.shopware_api_bundle.user: bwa
-    lma_dev.shopware_api_bundle.api_key: 2ETE6epki2TD4eB6BvWx9cBfCabEUO4aRV6fLGGw
-    lma_dev.shopware_api_bundle.shop_url: ''
+    lma_dev.shopware_api_bundle.user: {user}
+    lma_dev.shopware_api_bundle.api_key: {api_key}
+    lma_dev.shopware_api_bundle.shop_url: https://example.dev/api
 services:
     # default configuration for services in *this* file
     _defaults:

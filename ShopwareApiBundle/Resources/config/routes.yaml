@@ -1,0 +1,3 @@
+app_shopware_api_get:
+  path: shopware/api/get/{action}
+  controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController:get

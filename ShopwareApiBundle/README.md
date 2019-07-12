@@ -6,7 +6,7 @@ This Symfony Bundel allows connection to the Shopware 5.x platform
 
 ## Requirements
 - Shopware 5.x or higher
-- PHP 5.7 or higher
+- PHP 7.0 or higher
 
 
 ## Installation

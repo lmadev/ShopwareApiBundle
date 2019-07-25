@@ -1,7 +1,7 @@
 {
     "name": "lmacode/shopware-api-bundle",
     "description": "Bundle symfony for connection with Api Shopware.",
-    "type": "library",
+    "type": "project",
     "version": "1.0.1",
     "require": {
         "php": ">=7.0.0",

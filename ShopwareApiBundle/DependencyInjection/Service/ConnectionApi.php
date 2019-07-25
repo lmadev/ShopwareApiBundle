@@ -15,7 +15,6 @@ class ConnectionApi
      * @var string
      */
     private $apiKey;
-
     /**
      * ConnectionApi constructor.
      * @param string $user
@@ -26,7 +25,6 @@ class ConnectionApi
         $this->user = $user;
         $this->apiKey = $apiKey;
     }
-
     /**
      * @return HttpClientInterface
      */

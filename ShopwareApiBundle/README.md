@@ -30,13 +30,10 @@ parameters:
     lma_dev.shopware_api_bundle.shop_url: https://example.dev/api
 services:
     # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        bind:
-            string $user: '%lma_dev.shopware_api_bundle.user%'
-            string $apiKey: '%lma_dev.shopware_api_bundle.api_key%'
-            string $shopUrl: '%lma_dev.shopware_api_bundle.shop_url%'
+    App\LmaDev\ShopwareApiBundle\DependencyInjection\Service\ConnectionApi:
+            bind:
+                string $user: '%lma_dev.shopware_api_bundle.user%'
+                string $apiKey: '%lma_dev.shopware_api_bundle.api_key%'
 ```
 Update your `bundles.yaml` in your /config directory and fill in your own values
 

@@ -1,7 +1,7 @@
 {
     "name": "lmacode/shopware-api-bundle",
     "description": "Bundle symfony for connection with Api Shopware.",
-    "type": "project",
+    "type": "symfony-bundle",
     "version": "1.0.1",
     "require": {
         "php": ">=7.1.3",
@@ -18,10 +18,15 @@
             "email": "lma@lmacode.dev"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Lmadev\\ShopwareApiBundle\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.1-dev"
         }
     }
 }

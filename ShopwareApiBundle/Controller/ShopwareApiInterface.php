@@ -6,7 +6,7 @@ namespace App\LmaDev\ShopwareApiBundle\Controller;
 interface ShopwareApiInterface
 {
     public function get(String $action);
-    public function post(array $data, array $params = null);
-    public function put(array $data, array $params);
-    public function delete(array $params);
+    public function post(String $action);
+    public function put(String $action);
+    public function delete(String $action);
 }

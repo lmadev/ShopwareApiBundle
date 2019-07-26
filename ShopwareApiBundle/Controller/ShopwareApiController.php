@@ -77,27 +77,27 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
     }
 
     /**
-     * @param array $data
+     * @param String $action
      * @param array|null $params
      */
-    public function post(array $data, array $params = null)
+    public function post(String $action)
     {
         // TODO: Implement put() method.
     }
 
     /**
-     * @param array $data
+     * @param String $action
      * @param array $params
      */
-    public function put(array $data, array $params)
+    public function put(String $action)
     {
         // TODO: Implement put() method.
     }
 
     /**
-     * @param array $params
+     * @param String $action
      */
-    public function delete(array $params)
+    public function delete(String $action)
     {
         // TODO: Implement delete() method.
     }

@@ -2,11 +2,10 @@
 namespace App\LmaDev\ShopwareApiBundle\Controller;
 
 use App\LmaDev\ShopwareApiBundle\DependencyInjection\Service\ConnectionApi;
+use GuzzleHttp\Client;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-
 
 class ShopwareApiController extends AbstractController implements ShopwareApiInterface
 {
@@ -39,6 +38,7 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @example filter[0][property] filter[0][value]
      */
     public function get(String $action){
         /**
@@ -65,24 +65,20 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
             $params .= http_build_query(['limit'=>$request->get('limit')]);
         }
         /**
-         * @var string
+         * @var Client
          */
-        $shopUrl = $this->params->get('lma_dev.shopware_api_bundle.shop_url');
-        /**
-         * @var HttpClientInterface
-         */
-        $response = $this->api->call()->request('GET',$shopUrl.$action.'/?'.$params);
+        $response = $this->api->callGuzzle()->request('GET', $action.'/?'.$params);
 
-        return $this->json($response->getContent());
+        return $this->json($response->getBody());
     }
 
     /**
      * @param String $action
-     * @param array|null $params
      */
     public function post(String $action)
     {
-        // TODO: Implement put() method.
+
+
     }
 
     /**

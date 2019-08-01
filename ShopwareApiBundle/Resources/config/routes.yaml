@@ -1,3 +1,6 @@
 app_shopware_api_get:
   path: shopware/api/get/{action}
   controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController:get
+app_shopware_api_post:
+  path: shopware/api/post/{action}
+  controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController:post

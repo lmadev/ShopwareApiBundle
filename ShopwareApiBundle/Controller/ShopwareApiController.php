@@ -76,6 +76,7 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
 
     /**
      * @param String $action
+     * @return JsonResponse
      * @example add[name] add[tax] .....
      */
     public function post(String $action)
@@ -85,7 +86,7 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
          */
         $request = Request::createFromGlobals();
         /**
-         * @var string
+         * @var array
          */
         $data = null;
 
@@ -94,18 +95,36 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
             $data = $request->get('add');
         }
 
-        $response = $this->api->call()->post('articles',['json' => $data]);
+        $response = $this->api->call()->post($action,['json' => $data]);
 
         return $this->json($response->getBody());
     }
 
-    /**
+    /***
      * @param String $action
-     * @param array $params
+     * @param int $productID
+     * @return JsonResponse
+     * @example update[name] update[tax] .....
      */
-    public function put(String $action)
+    public function put(String $action, int $productID)
     {
-        // TODO: Implement put() method.
+        /**
+         * @var Request
+         */
+        $request = Request::createFromGlobals();
+        /**
+         * @var array
+         */
+        $data = null;
+
+        if(null !== $request->get('update') && is_array($request->get('update')))
+        {
+            $data = $request->get('update');
+        }
+
+        $response = $this->api->call()->put($action.'/'.$productID, ['json' => $data]);
+
+        return $this->json($response->getBody());
     }
 
     /**

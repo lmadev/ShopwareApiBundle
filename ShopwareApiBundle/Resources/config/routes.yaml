@@ -4,3 +4,6 @@ app_shopware_api_get:
 app_shopware_api_post:
   path: shopware/api/post/{action}
   controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController:post
+app_shopware_api_put:
+  path: shopware/api/put/{action}/{productID}
+  controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController::put

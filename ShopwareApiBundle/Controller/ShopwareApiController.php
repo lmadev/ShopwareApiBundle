@@ -3,9 +3,11 @@ namespace App\LmaDev\ShopwareApiBundle\Controller;
 
 use App\LmaDev\ShopwareApiBundle\DependencyInjection\Service\ConnectionApi;
 use GuzzleHttp\Client;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class ShopwareApiController extends AbstractController implements ShopwareApiInterface
 {
@@ -67,18 +69,34 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
         /**
          * @var Client
          */
-        $response = $this->api->callGuzzle()->request('GET', $action.'/?'.$params);
+        $response = $this->api->call()->request('GET', $action.'/?'.$params);
 
         return $this->json($response->getBody());
     }
 
     /**
      * @param String $action
+     * @example add[name] add[tax] .....
      */
     public function post(String $action)
     {
+        /**
+         * @var Request
+         */
+        $request = Request::createFromGlobals();
+        /**
+         * @var string
+         */
+        $data = null;
 
+        if(null !== $request->get('add') && is_array($request->get('add')))
+        {
+            $data = $request->get('add');
+        }
 
+        $response = $this->api->call()->post('articles',['json' => $data]);
+
+        return $this->json($response->getBody());
     }
 
     /**

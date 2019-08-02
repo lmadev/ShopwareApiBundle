@@ -34,7 +34,7 @@ class ConnectionApi
     /**
      * @return Client
      */
-    public function callGuzzle() : Client
+    public function call() : Client
     {
         $httpClient = new Client([
             'base_uri' => $this->baseUri,

@@ -129,9 +129,11 @@ class ShopwareApiController extends AbstractController implements ShopwareApiInt
 
     /**
      * @param String $action
+     * @param int $productID
      */
-    public function delete(String $action)
+    public function delete(String $action, int $productID)
     {
-        // TODO: Implement delete() method.
+        $response = $this->api->call()->delete($action.'/'.$productID);
+        return $this->json($response->getBody());
     }
 }

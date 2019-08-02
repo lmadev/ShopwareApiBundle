@@ -7,3 +7,6 @@ app_shopware_api_post:
 app_shopware_api_put:
   path: shopware/api/put/{action}/{productID}
   controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController::put
+app_shopware_api_delete:
+  path: shopware/api/delete/{action}/{productID}
+  controller: App\LmaDev\ShopwareApiBundle\Controller\ShopwareApiController::delete
